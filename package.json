@@ -1,0 +1,37 @@
+{
+  "name": "vuepress2document",
+  "version": "0.0.1",
+  "author": "wuliang142857 <wuliang142857@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "vuepress2document": "src/VuePress2Document.js"
+  },
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "cheerio": "^1.0.0-rc.10",
+    "is-absolute-url": "^3.0.3",
+    "is-url": "^1.2.4",
+    "lodash": "^4.17.21",
+    "markdown-it": "^12.1.0",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-anchor": "^8.1.0",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-deflist": "^2.1.0",
+    "markdown-it-emoji": "^2.0.0",
+    "markdown-it-footnote": "^3.0.3",
+    "markdown-it-ins": "^3.0.1",
+    "markdown-it-mark": "^3.0.1",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "tempy": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/argparse": "^2.0.10",
+    "@types/cheerio": "^0.22.30",
+    "@types/is-url": "^1.2.30",
+    "@types/lodash": "^4.14.171",
+    "@types/markdown-it": "^12.0.3",
+    "@types/node": "^16.3.0",
+    "typescript": "^4.3.5"
+  }
+}
