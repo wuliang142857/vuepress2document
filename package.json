@@ -1,10 +1,13 @@
 {
   "name": "vuepress2document",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "wuliang142857 <wuliang142857@gmail.com>",
   "license": "MIT",
   "bin": {
     "vuepress2document": "src/VuePress2Document.js"
+  },
+  "scripts": {
+    "build:watch": "tsc --build tsconfig.json --watch"
   },
   "dependencies": {
     "argparse": "^2.0.1",

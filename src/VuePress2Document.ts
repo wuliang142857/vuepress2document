@@ -30,7 +30,8 @@ const markdownInstance = new MarkdownIt({
 });
 markdownInstance
     .use(require("markdown-it-abbr"))
-    .use(require("markdown-it-container"))
+    .use(require("markdown-it-container"), "tip")
+    .use(require("markdown-it-container"), "warning")
     .use(require("markdown-it-deflist"))
     .use(require("markdown-it-emoji"))
     .use(require("markdown-it-footnote"))
@@ -40,6 +41,9 @@ markdownInstance
     .use(require("markdown-it-sup"))
     .use(require("markdown-it-anchor"))
 ;
+
+const REFERENCE_DOCX_FILENAME:string = "pretty-reference.docx";
+const REFERENCE_DOCX_FILE_PATH:string = path.join(__dirname, REFERENCE_DOCX_FILENAME);
 
 function getMarkdownFileId(markdownFile:string) : string {
     const $:Root = cheerio.load(markdownInstance.render(fs.readFileSync(markdownFile, "utf-8"), {}));
@@ -114,8 +118,7 @@ function main() {
     const renderHtml:string = markdownInstance.renderer.render(transformedTokens, markdownInstance.options, {});
     const tempHtmlFile:string = tempy.file({extension: "html"});
     fs.writeFileSync(tempHtmlFile, renderHtml, "utf-8");
-    //const cmd = `pandoc -s --toc -c pandoc.css ${tempHtmlFile} -o ${outputFile}`;
-    const cmd = `pandoc -s -c pandoc.css ${tempHtmlFile} -o ${outputFile}`;
+    const cmd = `pandoc --reference-doc ${REFERENCE_DOCX_FILE_PATH} ${tempHtmlFile} -o ${outputFile}`;
     console.log(cmd);
     child_process.execSync(cmd);
 
